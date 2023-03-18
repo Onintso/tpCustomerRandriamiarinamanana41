@@ -35,6 +35,12 @@
                     </f:facet>
                     <h:outputText value="#{item.discountCode.code} : #{item.discountCode.rate} %" />
                 </p:column>
+                 <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Zip"/>
+                    </f:facet>
+                    <h:outputText value="#{item.zip.zipCode} : #{item.zip.radius}" />
+                </p:column>
             </p:dataTable>  
         </h:form>
     </h:body>
