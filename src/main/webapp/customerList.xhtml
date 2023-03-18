@@ -31,7 +31,7 @@
                 <f:facet name="header">
                     <h:outputText value="Discount"/>
                 </f:facet>
-                <h:outputText value="#{item.discountCode}"/>
+                <h:outputText value="#{item.discountCode.code} : #{item.discountCode.rate} %" />
             </h:column>
         </h:dataTable>  
     </h:body>
