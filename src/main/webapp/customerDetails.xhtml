@@ -13,7 +13,9 @@
         <title>Détails d'un client</title>
     </h:head>
     <h:body>
-        <h:form>
+        <h:outputText value="Aucun client avec l'id #{customerDetailsBean.idCustomer} !" rendered='#{customerDetailsBean.customer == null}'/>
+
+        <h:form rendered='#{customerDetailsBean.customer != null}'>
             <h1><h:outputText value="Create/Edit"/></h1>
             <h:panelGrid columns="2">
                 <h:outputLabel value="CustomerId:" for="customerId" />
@@ -47,7 +49,7 @@
                 </h:selectOneMenu>
                 <h:button id="back" value="Revenir à la liste" outcome="customerList"/>
                 <h:commandButton id="update" value="Enregistrer" action="#{customerDetailsBean.update()}"/>
-            <h:messages/>
+                <h:messages/>
             </h:panelGrid>
         </h:form>
     </h:body>
