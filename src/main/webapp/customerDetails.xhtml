@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
-    
+
     <f:metadata>
         <f:viewParam name="idCustomer" value="#{customerDetailsBean.idCustomer}"
                      required="true"/>
@@ -37,9 +37,13 @@
                 <h:outputLabel value="CreditLimit:" for="creditLimit" />
                 <h:inputText id="creditLimit" value="#{customerDetailsBean.customer.creditLimit}" title="CreditLimit" />
                 <h:outputLabel value="Discount:" for="discount" />
-                <h:selectOneMenu id="discount" value="#{customerDetailsBean.customer.discountCode}" title="Discount" required="true" requiredMessage="The Discount field is required.">
-                    <!-- TODO: update below reference to list of available items-->
-                    <f:selectItems value="#{fixme}"/>
+                <h:selectOneMenu 
+                    id="discount" value="#{customerDetailsBean.customer.discountCode}" 
+                    title="Discount" required="true" requiredMessage="The Discount field is required.">
+                    <f:selectItems value="#{customerDetailsBean.getDiscounts()}"  
+                                   var="discount"
+                                   itemLabel="#{discount.code} : #{discount.rate}%" 
+                                   itemValue="#{discount}"/>
                 </h:selectOneMenu>
             </h:panelGrid>
         </h:form>
